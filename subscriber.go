@@ -38,7 +38,7 @@ func (s *Subscriber) Subscribe(topic string) error {
 }
 
 func (s *Subscriber) Unsubscribe(topic string) error {
-   if token := s.c.Unsubscribe("go-mqtt/sample"); token.Wait() && token.Error() != nil {
+   if token := s.c.Unsubscribe(topic); token.Wait() && token.Error() != nil {
 	   fmt.Println(token.Error())
 	   return token.Error()
    }
